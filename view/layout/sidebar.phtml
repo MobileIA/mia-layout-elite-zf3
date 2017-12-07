@@ -1,0 +1,26 @@
+<!-- Left navbar-header -->
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+        <?php $this->navigation()->menu()->setPartial('mia-layout-lte/menu/basic'); ?>
+        <?php echo $this->navigation('Zend\Navigation\Backend')->menu() ?>
+        <ul class="nav" id="side-menu">
+            <li class="nav-small-cap m-t-10">--- Menu Principal</li>
+            <li>
+                <a href="index.php" class="waves-effect"><i class="zmdi zmdi-view-dashboard zmdi-hc-fw fa-fw" ></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
+            </li>
+            <li>
+                <a href="categories.php" class="waves-effect"><i class="zmdi zmdi-apps zmdi-hc-fw fa-fw"></i> <span class="hide-menu">Categorías <span class="fa arrow"></span></span></a>
+            </li>
+            <li>
+                <a href="products.php" class="waves-effect"><i class="zmdi zmdi-border-all zmdi-hc-fw fa-fw"></i> <span class="hide-menu">Productos<span class="fa arrow"></span> </span></a>
+            </li>
+            <li>
+                <a href="ventas.php" class="waves-effect"><i class="zmdi zmdi-shopping-cart zmdi-hc-fw fa-fw"></i> <span class="hide-menu">Ventas<span class="fa arrow"></span></span></a>
+            </li>
+            <li>
+                <a href="machines.php" class="waves-effect"><i class="zmdi zmdi-code-smartphone zmdi-hc-fw fa-fw"></i> <span class="hide-menu">Maquinas<span class="fa arrow"></span></span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Left navbar-header end -->
