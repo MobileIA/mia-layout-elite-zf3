@@ -1,0 +1,40 @@
+{
+    "name": "mobileia/mia-layout-elite-zf3",
+    "description": "The library for Zend Framework 3",
+    "version": "0.0.1",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matias Camiletti",
+            "homepage": "http://www.mobileia.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/MobileIA/mia-layout-elite-zf3.git"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "zendframework/zend-db": "^2.8.1",
+        "zendframework/zend-json": "^3.0",
+        "zendframework/zend-mvc-form": "^1.0",
+        "zendframework/zend-navigation": "^2.8",
+        "zendframework/zend-paginator": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "MIALayoutElite\\": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "ln -s ../vendor/mobileia/mia-layout-elite-zf3/public/mia-layout-elite/ public/mia-layout-elite"
+        ]
+    }
+}

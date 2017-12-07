@@ -1,2 +1,3 @@
 # mia-layout-elite-zf3
-The module for Layout
+
+-Configuración de los archivos publicos: $ cd public/ $ ln -s ../vendor/mobileia/mia-layout-elite-zf3/public/mia-layout-elite/ mia-layout-elite
