@@ -1,0 +1,121 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle($this->layoutLte()->title)->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
+        
+    <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+    
+    <?=
+                //$this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+                $this->headLink()
+                ->prependStylesheet($this->basePath('mia-layout-elite/css/colors/default.css'))
+                ->prependStylesheet($this->basePath('mia-layout-elite/css/style.css'))
+                ->prependStylesheet($this->basePath('mia-layout-elite/css/animate.css'))
+                ->prependStylesheet($this->basePath('mia-layout-elite/plugins/bootstrap-extension/css/bootstrap-extension.css'))
+                ->prependStylesheet($this->basePath('mia-layout-elite/bootstrap/dist/css/bootstrap.min.css'))
+        ?>
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <section id="wrapper" class="login-register">
+        <div class="login-box login-sidebar">
+            <div class="white-box">
+                <form class="form-horizontal form-material" id="loginform" action="#">
+                    <a href="javascript:void(0)" class="text-center db">
+                        <img src="../plugins/images/eliteadmin-logo-dark.png" alt="Home" />
+                        <br/>
+                        <img src="../plugins/images/eliteadmin-text-dark.png" alt="Home" />
+                    </a>
+                    <?php $email = $this->form->get('email'); ?>
+                    <div class="form-group m-t-40">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="email" required="" name="<?php echo $email->getName(); ?>" placeholder="<?php echo $email->getOption('label'); ?>" />
+                        </div>
+                    </div>
+                    <?php $password = $this->form->get('password'); ?>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" name="<?php echo $password->getName(); ?>" placeholder="<?php echo $password->getOption('label'); ?>" />
+                        </div>
+                    </div>
+                    <?php $rememberMe = $this->form->get('remember_me'); ?>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-primary pull-left p-t-0">
+                                <input id="checkbox-signup" type="checkbox" name="<?php echo $rememberMe->getName(); ?>" />
+                                <label for="checkbox-signup"> Recordarme </label>
+                            </div>
+                            <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Olvide mi contraseña?</a> </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Ingresar</button>
+                        </div>
+                    </div>
+                </form>
+                <form class="form-horizontal" id="recoverform" action="#">
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <h3>Recuperar contraseña</h3>
+                            <p class="text-muted">Ingrese su E-mail para recibir las instrucciones! </p>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Recuperar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile($this->basePath('mia-layout-elite/plugins/styleswitcher/jQuery.style.switcher.js'))
+                ->prependFile($this->basePath('mia-layout-elite/js/custom.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/styleswitcher/jQuery.style.switcher.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/jquery.easy-pie-chart/easy-pie-chart.init.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/jquery-sparkline/jquery.sparkline.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/vectormap/jquery-jvectormap-world-mill-en.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/vectormap/jquery-jvectormap-2.0.2.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/morrisjs/morris.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/raphael/raphael-min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/flot/jquery.flot.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/counterup/jquery.counterup.min.js'))
+                //->prependFile($this->basePath('mia-layout-elite/plugins/waypoints/lib/jquery.waypoints.js'))
+                ->prependFile($this->basePath('mia-layout-elite/js/waves.js'))
+                ->prependFile($this->basePath('mia-layout-elite/js/jquery.slimscroll.js'))
+                ->prependFile($this->basePath('mia-layout-elite/plugins/sidebar-nav/dist/sidebar-nav.min.js'))
+                ->prependFile($this->basePath('mia-layout-elite/plugins/bootstrap-extension/js/bootstrap-extension.min.js'))
+                ->prependFile($this->basePath('mia-layout-elite/bootstrap/dist/js/bootstrap.min.js'))
+                ->prependFile($this->basePath('mia-layout-elite/bootstrap/dist/js/tether.min.js'))
+                ->prependFile($this->basePath('mia-layout-elite/plugins/jquery/dist/jquery.min.js'))
+        ?>
+        
+        <?= $this->inlineScript() ?>
+</body>
+</html>
