@@ -24,7 +24,7 @@ return array(
             //'mia-layout-elite/form/with-preview'           => __DIR__ . '/../view/form/with_preview.phtml',
             'mia-layout-elite/login/right'           => __DIR__ . '/../view/login/right.phtml',
             //'mia-layout-elite/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
-            //'mia-layout-elite/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
+            'mia-layout-elite/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',

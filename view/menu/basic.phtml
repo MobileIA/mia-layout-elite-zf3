@@ -1,0 +1,20 @@
+<ul class="nav" id="side-menu">
+    <li class="nav-small-cap m-t-10">--- Menu Principal</li>
+    <?php /* @var $page \Zend\Navigation\Page\Mvc */ ?>
+    <?php foreach ($this->container as $page): ?>
+        <?php if($page->count() == 0): ?>
+        <li>
+            <a href="<?php echo $page->getHref(); ?>" class="waves-effect <?php if($page->isActive()): ?>active<?php endif; ?>"><i class="zmdi <?php echo $page->getClass(); ?> zmdi-hc-fw fa-fw" ></i> <span class="hide-menu"> <?php echo $page->getLabel(); ?> <span class="fa arrow"></span> </span></a>
+        </li>
+        <?php else: ?>
+        <li>
+            <a href="javascript:void(0);" class="waves-effect <?php if($page->isActive(true)): ?>active<?php endif; ?>"><i class="zmdi <?php echo $page->getClass(); ?> zmdi-hc-fw fa-fw" ></i> <span class="hide-menu"> <?php echo $page->getLabel(); ?> <span class="fa arrow"></span> </span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                <?php foreach($page->getPages() as $subpage): ?>
+                <li><a href="<?php echo $subpage->getHref(); ?>" class="<?php if($subpage->isActive(true)): ?>active<?php endif; ?>"><?php echo $subpage->getLabel(); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>
