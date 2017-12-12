@@ -22,7 +22,7 @@ return array(
             //'mia-layout-elite/table/simple'           => __DIR__ . '/../view/table/simple.phtml',
             //'mia-layout-elite/form/simple'           => __DIR__ . '/../view/form/simple.phtml',
             //'mia-layout-elite/form/with-preview'           => __DIR__ . '/../view/form/with_preview.phtml',
-            //'mia-layout-elite/login/basic'           => __DIR__ . '/../view/login/basic.phtml',
+            'mia-layout-elite/login/right'           => __DIR__ . '/../view/login/right.phtml',
             //'mia-layout-elite/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
             //'mia-layout-elite/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
         ],
