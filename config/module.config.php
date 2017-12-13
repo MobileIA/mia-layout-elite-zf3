@@ -16,10 +16,10 @@ return array(
         'exception_template'       => 'error/index',
         'template_map' => [
             'mia-layout-elite'           => __DIR__ . '/../view/layout/layout.phtml',
-            //'mia-layout-elite/paginator/search'           => __DIR__ . '/../view/pagination/search.phtml',
+            'mia-layout-elite/paginator/simple'           => __DIR__ . '/../view/pagination/simple.phtml',
             //'mia-layout-elite/paginator/item'           => __DIR__ . '/../view/pagination/item.phtml',
             //'mia-layout-elite/paginator/dropdown'           => __DIR__ . '/../view/pagination/dropdown.phtml',
-            //'mia-layout-elite/table/simple'           => __DIR__ . '/../view/table/simple.phtml',
+            'mia-layout-elite/table/simple'           => __DIR__ . '/../view/table/simple.phtml',
             //'mia-layout-elite/form/simple'           => __DIR__ . '/../view/form/simple.phtml',
             //'mia-layout-elite/form/with-preview'           => __DIR__ . '/../view/form/with_preview.phtml',
             'mia-layout-elite/login/right'           => __DIR__ . '/../view/login/right.phtml',

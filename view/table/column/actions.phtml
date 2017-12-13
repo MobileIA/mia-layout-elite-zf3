@@ -1,0 +1,12 @@
+<td class="text-nowrap">
+    <?php if (array_key_exists('more', $column)): ?>
+        <?php foreach ($column['more'] as $act): ?>
+            <a href="<?php echo $this->url($act['route'], array('id' => $item['id'])); ?>" data-toggle="tooltip" data-original-title="Editar"> <i class="fa <?php echo $act['icon']; ?> text-inverse m-r-10"></i> </a>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <?php if (!array_key_exists('allow_edit', $column) || $column['allow_edit'] == true): ?>
+    <a href="<?php echo $this->url($this->route . '/edit', array('id' => $item['id'])); ?>" data-toggle="tooltip" data-original-title="Editar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+    <?php endif; ?>
+    <a href="<?php echo $this->url($this->route . '/delete', array('id' => $item['id'])); ?>" data-toggle="tooltip" data-original-title="Eliminar"> <i class="fa fa-close text-danger"></i> </a>
+</td>

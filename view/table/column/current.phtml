@@ -1,0 +1,10 @@
+<td>
+    <?php 
+    $now = new \DateTime("now");
+    $date = \DateTime::createFromFormat('Y-m-d H:i:s', $item[$column['field']]); ?>
+    <?php if($now < $date): ?>
+        <span class="label label-success">Vigente</span>
+    <?php else: ?>
+        <span class="label label-danger">Finalizado</span>
+    <?php endif ;?>
+</td>

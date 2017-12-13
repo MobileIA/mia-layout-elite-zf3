@@ -1,0 +1,7 @@
+<td style="width: 80px;">
+    <?php if($item[$column['field']] == ''): ?>
+    <img src="<?php echo $this->basePath('mia-layout-lte/dist/img/boxed-bg.png'); ?>" style="width: 80px; height: 80px; object-fit: cover;" />
+    <?php else: ?>
+    <img src="<?php echo $item[$column['field']]; ?>" style="width: 80px; height: 80px; object-fit: cover;" />
+    <?php endif; ?>
+</td>

@@ -1,0 +1,66 @@
+<?php $this->headTitle($this->string['title_page']); ?>
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title"><?php echo $this->string['main_title']; ?></h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+            <li><a href="<?php echo $this->url('backend'); ?>">Panel</a></li>
+            <li class="active"><?php echo $this->string['main_title']; ?></li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- .row -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title"><?php echo $this->string['title']; ?></h3>
+            <p class="text-muted m-b-20"><?php echo $this->string['main_caption']; ?></p>
+            <?php if ($service->getOption('allow_add', true)): ?>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group dt-buttons">
+                        <?php if ($this->is_relation === true): ?>
+                            <a href="<?php echo $this->url($this->route . '/add', array('id' => $relation_value)); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i>Agregar cuenta</a>
+                        <?php else: ?>
+                            <a href="<?php echo $this->url($this->route . '/add'); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i>Agregar cuenta</a>
+                        <?php endif; ?>
+                        
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <?php foreach ($service->getOption('columns', array()) as $column): ?>
+                                <th <?php if($column['type'] == 'actions'): ?>class="text-nowrap"<?php endif; ?>><?php echo $column['title']; ?></th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->paginator as $item): ?>
+                            <tr>
+                                <?php foreach ($service->getOption('columns', array()) as $column): ?>
+                                    <?php include('column/' . $column['type'] . '.phtml'); ?>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="8" class="footable-visible">
+                                <div class="text-right">
+                                    <?= $this->paginationControl($this->paginator, 'Sliding', 'mia-layout-elite/paginator/simple') ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
