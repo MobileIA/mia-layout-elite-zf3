@@ -20,7 +20,7 @@ return array(
             //'mia-layout-elite/paginator/item'           => __DIR__ . '/../view/pagination/item.phtml',
             //'mia-layout-elite/paginator/dropdown'           => __DIR__ . '/../view/pagination/dropdown.phtml',
             'mia-layout-elite/table/simple'           => __DIR__ . '/../view/table/simple.phtml',
-            //'mia-layout-elite/form/simple'           => __DIR__ . '/../view/form/simple.phtml',
+            'mia-layout-elite/form/simple'           => __DIR__ . '/../view/form/simple.phtml',
             //'mia-layout-elite/form/with-preview'           => __DIR__ . '/../view/form/with_preview.phtml',
             'mia-layout-elite/login/right'           => __DIR__ . '/../view/login/right.phtml',
             //'mia-layout-elite/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
@@ -31,14 +31,12 @@ return array(
         ],
     ],
     'view_helpers' => [
-        /*'aliases' => [
-            'layoutLte' => View\Helper\LayoutLte::class,
-            'lteForm' => View\Helper\LteForm::class,
+        'aliases' => [
+            'eliteForm' => View\Helper\EliteForm::class,
         ],
         'factories' => [
-            View\Helper\LayoutLte::class => View\Helper\LayoutLteFactory::class,
-            View\Helper\LteForm::class => InvokableFactory::class,
-        ],*/
+            View\Helper\EliteForm::class => InvokableFactory::class,
+        ],
     ],
     'mia_layout_elite' => [
         'title' => 'AdminElite',

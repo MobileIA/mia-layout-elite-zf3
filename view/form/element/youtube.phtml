@@ -1,0 +1,31 @@
+<?php $element->setAttribute('class', 'form-control'); ?>
+
+<div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
+    <?= $this->formLabel($element) ?>
+    <div><iframe id="<?php echo $element->getName(); ?>_iframe" width="560" height="315" src="<?php if($element->getValue() != ''): ?>https://www.youtube.com/embed/<?php echo $element->getValue(); ?><?php endif; ?>" frameborder="0" <?php if($element->getValue() == ''): ?>style="display: none;"<?php endif; ?> allowfullscreen></iframe></div>
+    <?= $this->formElement($element) ?>
+    <?= $this->formElementErrors()
+        ->setMessageOpenFormat('<span class="help-block">')
+        ->setMessageSeparatorString(', ')
+        ->setMessageCloseString('</span>')
+        ->render($element, ['class' => 'help-block']) ?>
+</div>
+
+<script type="text/javascript">
+<?php $this->headScript()->captureStart() ?>
+    $('#<?php echo $element->getName(); ?>').change(function(){
+        var value = $('#<?php echo $element->getName(); ?>').val();
+        value = value.replace('https://www.youtube.com/watch?v=', '');
+        value = value.replace('https://youtu.be/', '');
+        value = value.replace('www.youtube.com/watch?v=', '');
+        value = value.replace('youtube.be/', '');
+        $('#<?php echo $element->getName(); ?>').val(value);
+        if(value != ''){
+            $('#<?php echo $element->getName(); ?>_iframe').show();
+            $('#<?php echo $element->getName(); ?>_iframe').attr('src', 'https://www.youtube.com/embed/' + value);
+        }else{
+            $('#<?php echo $element->getName(); ?>_iframe').hide();
+        }
+    });
+<?php $this->headScript()->captureEnd() ?>
+</script>

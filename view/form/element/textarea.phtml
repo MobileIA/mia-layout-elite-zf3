@@ -1,0 +1,19 @@
+<?php $element->setAttribute('class', 'form-control ' . $element->getAttribute('class')); ?>
+
+<div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
+    <?= $this->formLabel($element) ?>
+    <?= $this->formElement($element) ?>
+    <?= $this->formElementErrors()->render($element, ['class' => 'help-block']) ?>
+</div>
+
+<?php $this->headLink()->appendStylesheet($this->basePath('mia-layout-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')) ?>
+<?php $this->headScript()->appendFile($this->basePath('mia-layout-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')) ?>
+
+<script type="text/javascript">
+<?php $this->headScript()->captureStart() ?>
+//$(function () {
+    //bootstrap WYSIHTML5 - text editor
+    $(".wysihtml5").wysihtml5();
+//});
+<?php $this->headScript()->captureEnd() ?>
+</script>

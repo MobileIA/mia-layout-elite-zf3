@@ -1,0 +1,20 @@
+<?php $element->setAttribute('class', 'form-control datepicker ' . $element->getAttribute('class')); ?>
+
+<div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
+    <?= $this->formLabel($element) ?>
+    <?= $this->formElement($element) ?>
+    <?= $this->formElementErrors()
+        ->setMessageOpenFormat('<span class="help-block">')
+        ->setMessageSeparatorString(', ')
+        ->setMessageCloseString('</span>')
+        ->render($element, ['class' => 'help-block']) ?>
+</div>
+
+<script type="text/javascript">
+<?php $this->headScript()->captureStart(); ?>
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+<?php $this->headScript()->captureEnd(); ?>
+</script>

@@ -1,0 +1,24 @@
+<?php foreach($element->getIterator() as $subElement): ?>
+    <?php echo $this->partial('form/element/' . $form->getElementType($subElement) . '.phtml', array('form' => $form, 'element' => $subElement)); ?>
+<?php endforeach; ?>
+
+<script type="text/javascript">
+<?php $this->headScript()->captureStart() ?>
+    $('#<?php echo $element->getName(); ?>').daterangepicker({ 
+        timePicker: true,
+        timePickerIncrement: 30,
+        timePicker24Hour: true,
+        locale: {
+            format: 'DD/MM/YYYY H:mm'
+        },
+        <?php if($element->get($element->getOption('first_element_name'))->getValue() != ''): ?>
+        startDate: moment('<?php echo $element->get($element->getOption('first_element_name'))->getValue(); ?>', "YYYY-MM-DD HH:mm:ss"),
+        endDate: moment('<?php echo $element->get($element->getOption('second_element_name'))->getValue(); ?>', "YYYY-MM-DD HH:mm:ss")
+        <?php endif; ?>
+    },
+    function(start, end, label) {
+        $('#<?php echo $element->getOption('first_element_name'); ?>').val(start.format('YYYY-MM-DD H:mm:ss'));
+        $('#<?php echo $element->getOption('second_element_name'); ?>').val(end.format('YYYY-MM-DD H:mm:ss'));
+    });
+<?php $this->headScript()->captureEnd() ?>
+</script>

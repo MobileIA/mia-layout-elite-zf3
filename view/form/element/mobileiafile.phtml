@@ -1,0 +1,11 @@
+<?php $element->setAttribute('class', 'form-control'); ?>
+
+<div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
+    <?= $this->formLabel($element) ?>
+    <?php echo $this->formMobileiaFile($element); ?>
+    <?= $this->formElementErrors()
+        ->setMessageOpenFormat('<span class="help-block">')
+        ->setMessageSeparatorString(', ')
+        ->setMessageCloseString('</span>')
+        ->render($element, ['class' => 'help-block']) ?>
+</div>

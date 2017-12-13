@@ -1,0 +1,120 @@
+<?php //var_dump($element->getValue()); exit(); ?>
+<?php $elementIdHtml = $element->getName() . '_fieldset'; ?>
+
+<fieldset id="<?php echo $elementIdHtml; ?>">
+    <label><?php echo $element->getLabel(); ?></label>
+    <input type="hidden" id="<?php echo $elementIdHtml; ?>_delete" name="<?php echo $elementIdHtml; ?>_delete" value="" />
+    <?php if($element->getValue() != null && count($element->getValue()) > 0): ?>
+    
+    <input type="hidden" id="<?php echo $elementIdHtml; ?>_count" name="<?php echo $elementIdHtml; ?>_count" value="<?php echo count($element->getValue()); ?>" />
+    <?php for($j = 0; $j < count($element->getValue()); $j++): ?>
+        <?php $val = $element->getValue()[$j]; ?>
+        <fieldset id="<?php echo $elementIdHtml . '_' . $j; ?>" class="element_fielset">
+            <a href="#" style="float: right; color: black;" data-num="<?php echo $j; ?>" onclick="return delete<?php echo $elementIdHtml; ?>(this)"><i class="fa fa-times"></i></a>
+            <?php foreach($element->getTargetElement()->getIterator() as $subElement): ?>
+                <?php $subElementClone = clone $subElement; ?>
+                <?php $subElementClone->setValue($val[$subElementClone->getName()]); ?>
+                <?php $subElementClone->setName($elementIdHtml. '_' . $j . '['.$subElementClone->getName().']'); ?>
+                <?php echo $this->partial('form/element/' . $form->getElementType($subElementClone) . '.phtml', array('form' => $form, 'element' => $subElementClone)); ?>
+            <?php endforeach; ?>
+            <a href="#" data-num="<?php echo $j; ?>" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
+        </fieldset>
+    <?php endfor; ?>
+    
+    <?php else: ?>
+    
+    <input type="hidden" id="<?php echo $elementIdHtml; ?>_count" name="<?php echo $elementIdHtml; ?>_count" value="1" />
+    <fieldset id="<?php echo $elementIdHtml . '_0'; ?>" class="element_fielset">
+        <a href="#" style="float: right; color: black;" data-num="0" onclick="return delete<?php echo $elementIdHtml; ?>(this)"><i class="fa fa-times"></i></a>
+        <?php foreach($element->getTargetElement()->getIterator() as $subElement): ?>
+            <?php $subElement->setName($elementIdHtml. '_0' . '['.$subElement->getName().']'); ?>
+            <?php echo $this->partial('form/element/' . $form->getElementType($subElement) . '.phtml', array('form' => $form, 'element' => $subElement)); ?>
+        <?php endforeach; ?>
+        <a href="#" data-num="0" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
+    </fieldset>
+    <?php endif; ?>
+</fieldset>
+
+<div class="form-group">
+    <button type="button" class="btn btn-default" onclick="return add<?php echo $elementIdHtml; ?>()">Agregar otro</button>
+</div>
+
+<script type="text/javascript">
+function add<?php echo $elementIdHtml; ?>(){
+    var currentCount = $('#<?php echo $elementIdHtml; ?> fieldset').length;
+    var template = $('#<?php echo $element->getName(); ?>_fieldset_0').clone();
+    $(template).attr('id', '<?php echo $element->getName(); ?>_fieldset_' + currentCount);
+    $(template).find('input').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_0', '_'+currentCount));
+    });
+    $(template).find('select').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_0', '_'+currentCount));
+    });
+    $(template).find('label').each(function(index, element){
+        $(element).attr('for', $(element).attr('for').replace('_0', '_'+currentCount));
+    });
+    $(template).find('input').val('');
+    $(template).find('a').attr('data-num', currentCount);
+
+    $('#<?php echo $elementIdHtml; ?>').append(template);
+    $('#<?php echo $elementIdHtml; ?>_count').val(parseInt($('#<?php echo $elementIdHtml; ?>_count').val()) + 1);
+    // Refrescar campos de fecha
+    $('.datepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
+
+    return false;
+}
+function copy<?php echo $elementIdHtml; ?>(el){
+    // Obtener mumero de elemento
+    var num = $(el).attr('data-num');
+    var currentCount = $('#<?php echo $elementIdHtml; ?> fieldset').length;
+    var template = $('#<?php echo $element->getName(); ?>_fieldset_'+num).clone();
+    $(template).attr('id', '<?php echo $element->getName(); ?>_fieldset_' + currentCount);
+    $(template).find('input').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('select').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('label').each(function(index, element){
+        $(element).attr('for', $(element).attr('for').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('a').attr('data-num', currentCount);
+    // Resetear ID oculto si tiene
+    $(template).find('input[name="<?php echo $elementIdHtml; ?>_'+currentCount+'[id]"]').val('');
+
+    $('#<?php echo $elementIdHtml; ?>').append(template);
+    $('#<?php echo $elementIdHtml; ?>_count').val(parseInt($('#<?php echo $elementIdHtml; ?>_count').val()) + 1);
+    // Refrescar campos de fecha
+    $('.datepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
+
+    return false;
+}
+function delete<?php echo $elementIdHtml; ?>(element){
+    // Obtener mumero de elemento
+    var num = $(element).attr('data-num');
+    // Buscar input oculto
+    var hidden = $('#<?php echo $element->getName(); ?>_fieldset_' + num).find('input[type="hidden"]')[0];
+    var hiddenVal = $(hidden).val();
+    if(hiddenVal){
+        var deleteds = $('#<?php echo $element->getName(); ?>_fieldset_delete').val();
+        if(deleteds == ''){
+            $('#<?php echo $element->getName(); ?>_fieldset_delete').val(hiddenVal);
+        }else{
+            $('#<?php echo $element->getName(); ?>_fieldset_delete').val($('#<?php echo $element->getName(); ?>_fieldset_delete').val() + "," + hiddenVal);
+        }
+    } 
+    if(num == 0){
+        $(element).parent().find('input').val('');
+        return false;
+    }
+    $('#<?php echo $element->getName(); ?>_fieldset_' + num).remove();
+    
+    return false;
+};
+</script>

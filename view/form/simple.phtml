@@ -1,0 +1,46 @@
+<?php $this->headTitle($this->string['title_page']); ?>
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title"><?php echo $this->string['main_title']; ?></h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+            <li><a href="<?php echo $this->url('backend'); ?>">Panel</a></li>
+            <li><a href="<?php echo $this->url($this->route . '/list'); ?>"><?php echo $this->string['main_title']; ?></a></li>
+            <li class="active">Nuevo</li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="white-box">
+            <h3 class="box-title m-b-0"><?php echo $this->string['main_title_add']; ?></h3>
+            <p class="text-muted m-b-30 font-13"><?php echo $this->string['main_caption_add']; ?></p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <?php echo $this->eliteForm($form); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--row -->
+
+<script type="text/javascript">
+<?php $this->headScript()->captureStart() ?>
+    // Buscar si hay campos con errores
+    $('.has-error').each(function (index, element) {
+        if (index == 0) {
+            setTimeout(function () {
+                $(element).find('.form-control').focus();
+            }, 0);
+        }
+        var helpBlock = $(element).find('.help-block');
+        if (helpBlock.text() == "Value is required and can't be empty") {
+            helpBlock.text("Este campo es necesario!");
+        }
+    });
+<?php $this->headScript()->captureEnd() ?>
+</script>
