@@ -1,1 +1,7 @@
-<td><?php echo $item[$column['field']]; ?></td>
+<td>
+    <?php if(array_key_exists('empty', $column) && $item[$column['field']] == ''): ?>
+        <?php echo $column['empty']; ?>
+    <?php else: ?>
+        <?php echo $item[$column['field']]; ?>
+    <?php endif; ?>
+</td>
