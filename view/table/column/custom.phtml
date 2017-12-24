@@ -1,1 +1,1 @@
-<?php echo $this->partial('backend/machine/column-actions', array('column' => $column, 'item' => $item)); ?>
+<?php echo $this->partial($column['partial'], array('column' => $column, 'item' => $item, 'route' => $this->route)); ?>
