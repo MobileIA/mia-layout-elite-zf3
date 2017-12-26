@@ -31,6 +31,9 @@
                 </div>
             </div>
             <?php endif; ?>
+            <?php if($service->getOption('filter_view', '') != ''): ?>
+                    <?php echo $this->partial($service->getOption('filter_view', '')); ?>
+            <?php endif; ?>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
