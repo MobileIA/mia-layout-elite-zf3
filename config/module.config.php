@@ -33,9 +33,11 @@ return array(
     'view_helpers' => [
         'aliases' => [
             'eliteForm' => View\Helper\EliteForm::class,
+            'phrases' => View\Helper\Phrases::class,
         ],
         'factories' => [
             View\Helper\EliteForm::class => InvokableFactory::class,
+            View\Helper\Phrases::class => InvokableFactory::class,
         ],
     ],
     'mia_layout_elite' => [
