@@ -1,0 +1,7 @@
+<div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
+    <?php echo $this->formLabel($element) ?>
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" name="<?php echo $element->getName(); ?>" class="form-control" value="<?php echo $element->getValue(); ?>">
+    </div>
+</div>
