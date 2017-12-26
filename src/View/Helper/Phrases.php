@@ -30,7 +30,7 @@ class Phrases extends \Zend\View\Helper\AbstractHelper
         // Verificamos para obtener la frase
         if($hour >= 6 && $hour <= 12){
             $phrase = $this->morning[rand(0, count($this->morning))];
-        }else if(v > 12 && $hour <= 20){
+        }else if($hour > 12 && $hour <= 20){
             $phrase = $this->afternoon[rand(0, count($this->afternoon))];
         }else{
             $phrase = $this->night[rand(0, count($this->night))];
