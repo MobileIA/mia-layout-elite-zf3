@@ -1,4 +1,19 @@
 <?= $this->formLabel($element) ?>
-<div class="form-group form-group-checkbox">
-    <?php echo $this->formMultiCheckbox($element); ?>
+<?php
+    $elem = $element;
+    $elemName = $elem->getName();
+    $values = $elem->getValue();
+?>
+<div class="row">
+<?php foreach($elem->getValueOptions() as $option=>$value){ ?>
+    <div class="col-md-3">
+    <div class="form-check">
+        <label class="custom-control custom-checkbox" for="<?php echo $elemName; ?>-<?php echo $option; ?>">
+            <input type="checkbox" class="custom-control-input" name="<?php echo $elemName; ?>[]" id="<?php echo $elemName; ?>-<?php echo $option; ?>" value="<?php echo $option; ?>" <?php if($values && in_array($option, $values)){ echo ' checked="checked"'; }?>>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><?php echo $value; ?></span>
+        </label>
+    </div>
+    </div>
+<?php } ?>
 </div>
