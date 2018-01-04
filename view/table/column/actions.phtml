@@ -1,7 +1,7 @@
 <td class="text-nowrap">
     <?php if (array_key_exists('more', $column)): ?>
         <?php foreach ($column['more'] as $act): ?>
-            <a href="<?php echo $this->url($act['route'], array('id' => $item['id'])); ?>" data-toggle="tooltip" data-original-title="Editar"> <i class="fa <?php echo $act['icon']; ?> text-inverse m-r-10"></i> </a>
+            <a href="<?php echo $this->url($act['route'], array('id' => $item['id'])); ?>" data-toggle="tooltip" data-original-title="<?php echo $act['title']; ?>"> <i class="fa <?php echo $act['icon']; ?> text-inverse m-r-10"></i> </a>
         <?php endforeach; ?>
     <?php endif; ?>
     
