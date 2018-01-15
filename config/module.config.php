@@ -12,7 +12,7 @@ return array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
+        'not_found_template'       => 'mia-layout-elite/error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
             'mia-layout-elite'           => __DIR__ . '/../view/layout/layout.phtml',
@@ -25,6 +25,7 @@ return array(
             'mia-layout-elite/login/right'           => __DIR__ . '/../view/login/right.phtml',
             //'mia-layout-elite/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
             'mia-layout-elite/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
+            'mia-layout-elite/error/404'               => __DIR__ . '/../view/error/404.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
