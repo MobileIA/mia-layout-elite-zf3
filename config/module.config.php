@@ -26,6 +26,7 @@ return array(
             //'mia-layout-elite/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
             'mia-layout-elite/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
             'mia-layout-elite/error/404'               => __DIR__ . '/../view/error/404.phtml',
+            'mia-layout-elite/flash-messenger'               => __DIR__ . '/../view/layout/flash.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',

@@ -1,7 +1,7 @@
 {
     "name": "mobileia/mia-layout-elite-zf3",
     "description": "The library for Zend Framework 3",
-    "version": "0.0.24",
+    "version": "0.0.25",
     "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
@@ -27,6 +27,7 @@
         "zendframework/zend-mvc-form": "^1.0",
         "zendframework/zend-navigation": "^2.8",
         "zendframework/zend-paginator": "^2.7",
+        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0",
         "mobileia/mia-layout-zf3": "^0.0"
     },
     "autoload": {
