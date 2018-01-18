@@ -50,10 +50,12 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                    <?php if ($this->identity() == null || $this->identity()->photo == ''): ?>
-                        <img src="<?php echo $this->basePath('mia-layout-elite/plugins/images/users/d1.jpg'); ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image" width="36">
-                    <?php else: ?>
-                        <img src="<?php echo $this->identity()->photo; ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image" width="36">
+                    <?php if($this->miaLayout()->get('show_user_photo', trues)): ?>
+                        <?php if ($this->identity() == null || $this->identity()->photo == ''): ?>
+                            <img src="<?php echo $this->basePath('mia-layout-elite/plugins/images/users/d1.jpg'); ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image" width="36">
+                        <?php else: ?>
+                            <img src="<?php echo $this->identity()->photo; ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image" width="36">
+                        <?php endif; ?>
                     <?php endif; ?>
                     <b class="hidden-xs"><?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?></b>
                 </a>
