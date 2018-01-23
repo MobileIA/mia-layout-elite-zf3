@@ -1,4 +1,7 @@
 <td>
+    <?php if(array_key_exists('prefix', $column)): ?>
+        <?php echo $column['prefix']; ?>
+    <?php endif; ?>
     <?php if(array_key_exists('empty', $column) && $item[$column['field']] == ''): ?>
         <?php echo $column['empty']; ?>
     <?php else: ?>

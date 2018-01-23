@@ -1,4 +1,7 @@
 <td>
+    <?php if(array_key_exists('prefix', $column)): ?>
+        <?php echo $column['prefix']; ?>
+    <?php endif; ?>
     <?php foreach($column['fields'] as $field): ?>
         <?php echo $item[$field]; ?> 
     <?php endforeach; ?>

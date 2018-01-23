@@ -1,1 +1,6 @@
-<td><?php echo $item[$column['field']]; ?></td>
+<td>
+    <?php if(array_key_exists('prefix', $column)): ?>
+        <?php echo $column['prefix']; ?>
+    <?php endif; ?>
+    <?php echo $item[$column['field']]; ?>
+</td>
