@@ -17,7 +17,7 @@
                 <?php $subElementClone->setName($elementIdHtml. '_' . $j . '['.$subElementClone->getName().']'); ?>
                 <?php echo $this->partial('form/element/' . $form->getElementType($subElementClone) . '.phtml', array('form' => $form, 'element' => $subElementClone)); ?>
             <?php endforeach; ?>
-            <a href="#" data-num="<?php echo $j; ?>" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
+            <!--<a href="#" data-num="<?php echo $j; ?>" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>-->s
         </fieldset>
     <?php endfor; ?>
     
@@ -30,7 +30,7 @@
             <?php $subElement->setName($elementIdHtml. '_0' . '['.$subElement->getName().']'); ?>
             <?php echo $this->partial('form/element/' . $form->getElementType($subElement) . '.phtml', array('form' => $form, 'element' => $subElement)); ?>
         <?php endforeach; ?>
-        <a href="#" data-num="0" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
+        <!--<a href="#" data-num="0" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>-->
     </fieldset>
     <?php endif; ?>
 </fieldset>
