@@ -23,9 +23,9 @@
                 <div class="col-sm-12">
                     <div class="form-group dt-buttons">
                         <?php if ($this->is_relation === true): ?>
-                            <a href="<?php echo $this->url($this->route . '/add', array('id' => $relation_value)); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i>Agregar cuenta</a>
+                            <a href="<?php echo $this->url($this->route . '/add', array('id' => $relation_value)); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i><?php echo $this->string['main_title_add']; ?></a>
                         <?php else: ?>
-                            <a href="<?php echo $this->url($this->route . '/add'); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i>Agregar cuenta</a>
+                            <a href="<?php echo $this->url($this->route . '/add'); ?>" id="demo-btn-addrow" class="btn btn-outline btn-default btn-sm"><i class="icon wb-plus" aria-hidden="true"></i><?php echo $this->string['main_title_add']; ?></a>
                         <?php endif; ?>
                         
                     </div>
