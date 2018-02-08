@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle($this->layoutLte()->title)->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headTitle('Backend - ' . $this->miaLayout()->get('title'))->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
         
     <?php echo $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
