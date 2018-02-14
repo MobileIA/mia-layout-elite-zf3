@@ -68,3 +68,22 @@
     </div>
 </div>
 <!-- /.row -->
+<script type="text/javascript">
+<?php $this->headScript()->captureStart(); ?>
+    function deleteItem(element){
+        swal({
+            title: "Estas seguro?",
+            text: "Una vez confirmado, no podra volver atras esta acción.",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si, Eliminalo!",
+            closeOnConfirm: false
+        }, function(){
+            window.location.href = $(element).attr('href');
+        });
+        return false;
+    }
+<?php $this->headScript()->captureEnd(); ?>
+</script>
