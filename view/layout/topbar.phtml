@@ -3,7 +3,14 @@
     <div class="navbar-header">
         <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
         <div class="top-left-part">
-            <a class="logo" href="#"><b><img src="<?php echo $this->basePath('mia-layout-elite/plugins/images/eliteadmin-logo.png'); ?>" alt="home" /></b><span class="hidden-xs"><img src="<?php echo $this->basePath('mia-layout-elite/plugins/images/eliteadmin-text.png'); ?>" alt="home" /></span></a>
+            <a class="logo" href="#">
+                <b class="visible-xs">
+                    <img src="<?php echo $this->basePath($this->miaLayout()->get('topbar_icon_img', 'mia-layout-elite/plugins/images/eliteadmin-logo.png')); ?>" alt="home" style="width: 40px; height: 40px;" />
+                </b>
+                <span class="hidden-xs" style="height: 60px; display: inline-block; padding: 10px;">
+                    <img src="<?php echo $this->basePath($this->miaLayout()->get('topbar_logo_img', 'mia-layout-elite/plugins/images/eliteadmin-text.png')); ?>" alt="home" style="height: 40px;" />
+                </span>
+            </a>
         </div>
         <?php echo $this->phrases(); ?>
         <ul class="nav navbar-top-links navbar-right pull-right">
