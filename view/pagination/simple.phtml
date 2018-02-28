@@ -1,11 +1,12 @@
 <?php if ($this->pageCount): ?>
+<?php if($this->route_param_extra){ $paramsExtras = $this->route_param_extra; }else{ $paramsExtras = array(); } ?>
 <ul class="pagination m-t-10">
     <!--<li class="footable-page-arrow disabled">
         <a data-page="first" href="#first">«</a>
     </li>-->
     <?php if (isset($this->previous)): ?>
     <li class="footable-page-arrow">
-        <a data-page="prev" href="<?= $this->url($this->route, ['page' => $this->previous]); ?>">‹</a>
+        <a data-page="prev" href="<?= $this->url($this->route, array_merge($paramsExtras, ['page' => $this->previous])); ?>">‹</a>
     </li>
     <?php else: ?>
     <li class="footable-page-arrow disabled">
@@ -16,7 +17,7 @@
     <!-- Numbered page links -->
     <?php foreach ($this->pagesInRange as $page): ?>
         <?php if ($page != $this->current): ?>
-            <li class="footable-page"><a data-page="<?= $page; ?>" href="<?= $this->url($this->route, ['page' => $page]); ?>"><?= $page; ?></a></li>
+            <li class="footable-page"><a data-page="<?= $page; ?>" href="<?= $this->url($this->route, array_merge($paramsExtras, ['page' => $page])); ?>"><?= $page; ?></a></li>
         <?php else: ?>
             <li class="footable-page active"><a data-page="<?= $page; ?>" href="#"><?= $page; ?></a></li>
         <?php endif; ?>
@@ -24,7 +25,7 @@
     
     <?php if (isset($this->next)): ?>
     <li class="footable-page-arrow">
-        <a data-page="next" href="<?= $this->url($this->route, ['page' => $this->next]); ?>">›</a>
+        <a data-page="next" href="<?= $this->url($this->route, array_merge($paramsExtras, ['page' => $this->next])); ?>">›</a>
     </li>
     <?php else: ?>
     <li class="footable-page-arrow disabled">
