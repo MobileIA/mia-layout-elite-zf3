@@ -1,7 +1,7 @@
 <?= $this->doctype() ?>
 <html>
     <head>
-        <?= $this->headTitle('')->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headTitle($this->miaLayout()->get('title_layout', ''))->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?=
                 $this->headMeta()
