@@ -57,7 +57,7 @@
                         <tr>
                             <td colspan="<?php echo count($service->getOption('columns', array())); ?>" class="footable-visible">
                                 <div class="text-right">
-                                    <?= $this->paginationControl($this->paginator, 'Sliding', 'mia-layout-elite/paginator/simple') ?>
+                                    <?= $this->paginationControl($this->paginator, 'Sliding', 'mia-layout-elite/paginator/simple', array('route_param_extra' => $service->getOption('route_params', array()))) ?>
                                 </div>
                             </td>
                         </tr>
